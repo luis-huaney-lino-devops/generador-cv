@@ -1,11 +1,21 @@
 # /data — Base de datos de experiencia (para la IA)
 
-Texto plano que el agente lee para adaptar el CV. No genera nada por sí solo;
+Texto/datos que el agente lee para adaptar el CV. No genera nada por sí solo;
 es la **fuente de verdad** de la que la IA elige qué poner.
 
 ## Archivos
-- `experiencia_detallada.md` → banco de bullets por empleo, **etiquetados por área**.
-- `habilidades_por_rol.md` → qué categorías de skills resaltar según el puesto.
+- **`perfil.json`** → ⭐ **FUENTE PRINCIPAL (machine-readable, bilingüe es/en).**
+  Consolida TODO en un solo lugar y ordenado: datos personales, experiencia con
+  bullets etiquetados (`tags`) y marcados `verificar`, certificados, constancias
+  (con enlace a las imágenes de `/evidencias`), educación, habilidades y el orden
+  de skills por rol. **Empieza por aquí.** Tiene un bloque `_meta` que explica
+  cómo usarlo y qué falta por completar (`_meta.pendientesDeLuis`).
+- `experiencia_detallada.md` → misma info de experiencia en formato humano (referencia rápida).
+- `habilidades_por_rol.md` → misma info de skills-por-rol en formato humano (referencia rápida).
+
+> Los `.md` se mantienen como lectura rápida para humanos, pero **si hay
+> diferencia, manda `perfil.json`**. Al agregar experiencia nueva, actualiza
+> primero `perfil.json`.
 
 ## Formato del banco de bullets
 Cada bullet empieza con una o más etiquetas entre corchetes y luego el texto:

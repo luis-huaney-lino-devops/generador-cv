@@ -7,6 +7,13 @@ Tu objetivo: maximizar el match con el puesto **sin inventar experiencia**.
 - El texto del aviso (o el rol objetivo, ej. "Frontend Senior React").
 - Este kit (`generador/`, `data/`).
 
+## Fuente de datos (LÉELA PRIMERO)
+`data/perfil.json` es la **fuente única de verdad** (bilingüe es/en). Contiene
+toda la información ordenada y lista para seleccionar: `titulares` por rol,
+`experiencia[].bullets` con `tags` y `verificar`, `certificados`, `constancias`,
+`habilidades` y `habilidadesPorRol`. Lee su bloque `_meta.comoLoUsaLaIA`. Los
+`.md` de `data/` son solo referencia humana.
+
 ## Pasos
 
 1. **Extrae keywords del aviso**: tecnologías, seniority, responsabilidades y la
@@ -19,16 +26,16 @@ Tu objetivo: maximizar el match con el puesto **sin inventar experiencia**.
    - DevOps → `"Full Stack Developer & DevOps | Docker | CI/CD | AWS | Azure | +3 años exp."`
 
 3. **Reordena y filtra los bullets de experiencia**. Usa
-   `data/experiencia_detallada.md`, que tiene un **banco de bullets etiquetado**
-   por área (`[frontend]`, `[backend]`, `[devops]`, `[data]`, `[liderazgo]`).
-   - Pon primero los bullets del área del puesto.
+   `data/perfil.json` → `experiencia[].bullets`, cada uno con `tags`
+   (`frontend`, `backend`, `devops`, `data`, `bd`, `liderazgo`) y `verificar`.
+   - Pon primero los bullets cuyo `tags` incluya el área del puesto.
    - Máximo 3–4 bullets por experiencia; corta el resto.
-   - No agregues logros que no estén en el banco. Si un dato lleva `[verificar]`,
-     no lo uses sin confirmación de Luis.
+   - No agregues logros que no estén en el JSON. Si un bullet tiene
+     `verificar: true`, no lo uses sin confirmación de Luis.
 
-4. **Reordena las categorías de `habilidades`** poniendo primero la del rol
-   (ver `data/habilidades_por_rol.md`). Puedes recortar categorías irrelevantes
-   para un CV más enfocado (1–2 páginas).
+4. **Reordena las categorías de `habilidades`** siguiendo
+   `data/perfil.json` → `habilidadesPorRol[rol]` (lista ordenada de `id`s).
+   Puedes recortar categorías irrelevantes para un CV enfocado (1–2 páginas).
 
 5. **Ajusta el perfil** (2–3 frases) para nombrar el rol y 2–3 tecnologías clave
    del aviso. Mantén el tono y no inventes.

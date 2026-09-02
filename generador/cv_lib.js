@@ -98,7 +98,7 @@ function buildAnnex(evidenciasDir, labels) {
       const maxW = 560;
       const w = Math.min(maxW, dim.width);
       const h = Math.round(w * (dim.height / dim.width));
-      const caption = file.replace(/\.(png|jpe?g|gif)$/i, '').replace(/[_-]+/g, ' ');
+      const caption = file.replace(/\.(png|jpe?g|gif)$/i, '').replace(/^\d+[_\-\s]*/, '').replace(/[_-]+/g, ' ');
       kids.push(new Paragraph({
         spacing: { before: 60, after: 20 },
         children: [new TextRun({ text: caption, bold: true, size: 20, font: FONT })],

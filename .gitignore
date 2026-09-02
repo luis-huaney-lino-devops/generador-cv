@@ -1,0 +1,10 @@
+# Dependencias
+node_modules/
+**/node_modules/
+
+# Repo externo clonado (tiene su propio git).
+# Re-clonar con: git clone https://github.com/MadsLorentzen/ai-job-search.git
+# /ai-job-search/
+
+# Estado transitorio del buscador (se regenera con /buscar)
+# /postular/trabajos.json
